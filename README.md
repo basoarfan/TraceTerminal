@@ -1,6 +1,11 @@
+## Dukungan kopi
+
+[![Buy Me a Coffee](https://img.shields.io/badge/Buy_Me_a_Coffee-FFDD00?style=for-the-badge&logo=buymeacoffee&logoColor=black)](#pengaturan-tautan-kopi)
+
+
 # Trace Terminal
 
-Trace Terminal adalah aplikasi terminal **khusus saham Indonesia yang tercatat di Bursa Efek Indonesia (BEI / IDX)**. Aplikasi membaca dokumen Excel kepemilikan saham untuk membandingkan kepemilikan antarperiode, memindai perubahan pada seluruh emiten, dan mencari pemegang saham berdasarkan nama.
+Trace Terminal adalah Aplikasi membaca dokumen Excel kepemilikan saham untuk membandingkan kepemilikan antarperiode, memindai perubahan pada seluruh emiten, dan mencari pemegang saham berdasarkan nama.
 
 Aplikasi mengolah file `.xlsx` di komputer dan belum mengunduh data IDX secara otomatis. Cakupan analisis mengikuti emiten, pemegang saham, dan tanggal yang tersedia dalam dokumen lokal.
 
@@ -115,22 +120,21 @@ Pada analisa perubahan dan scanner 5%, kolom **Rekening Efek** menampilkan kode 
 
 ## Screenshot terminal — menu utama
 
-Tempat URL screenshot pertama: **belum diisi**. Unggah gambar ke repositori atau GitHub, kemudian ganti `URL_SCREENSHOT_MENU_UTAMA` pada contoh berikut dan letakkan di luar blok kode agar gambar tampil:
+<div align="center">
 
-```markdown
-![Menu utama Trace Terminal](URL_SCREENSHOT_MENU_UTAMA)
-```
+<table> <tr> <td align="center" width="50%">
 
-## Screenshot terminal — hasil analisis
+Menu Utama
 
-Tempat URL screenshot kedua: **belum diisi**. Ganti `URL_SCREENSHOT_HASIL_ANALISIS` dengan URL gambar hasil analisa atau scanner, lalu letakkan di luar blok kode:
+<img src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEiL1OGZ_JaxnQ5nxO7oXTRunCRLJJfgBuzfowDsVAeew_a3ZDFVWkbRLqUnYA66oDcEi6ZO-bIIHmr88l2drrIS6i3MnKluBLhTG3NZleBTX2gXE3jkkFqiyDmNzAbnAZHpGQd74tUY17u7CmjJmIoSzdXdECNEGIFPLbasXHWtrEtWlK8Rj8VQCGPP_Qk-/s6250/ss1.png" alt="Menu utama Trace Terminal" width="100%">
 
-```markdown
-![Hasil analisis Trace Terminal](URL_SCREENSHOT_HASIL_ANALISIS)
-```
+</td> <td align="center" width="50%">
 
-## Dukungan kopi
+Hasil Analisis
 
-[![Buy Me a Coffee](https://img.shields.io/badge/Buy_Me_a_Coffee-FFDD00?style=for-the-badge&logo=buymeacoffee&logoColor=black)](#pengaturan-tautan-kopi)
+<img src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEiUljkoAyvwAZNSwTh6VdlTQ6LeZg0lB04MelXr2h_slsfSC3U9x0mpzB6IlFCBPBjr9Mikwy1N6TNenSoRfM_I-7SGxUO7BuuWkwozjnd8jsV7mKPULoGayI_SnMM-h5vNxPIl2RHLHjnpKWOcDpWpBRzWCkyAD42ASzjdrLBZQ21kvTe7jLFK9mHxPuCg/s4000/ss2.png" alt="Hasil analisis Trace Terminal" width="100%">
 
+</td> </tr> </table>
+
+</div>
 
