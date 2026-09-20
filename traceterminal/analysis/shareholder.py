@@ -136,8 +136,10 @@ def analyze_shareholder_documents(
 def scan_shareholder_documents(
     documents_dir: Path,
     period_months: int,
+    *,
+    include_neutral: bool = False,
 ) -> dict[str, Any]:
-    """Scan every issuer and return only ownership movements in the period."""
+    """Scan ownership movements, optionally including unchanged positions."""
     if period_months not in {2, 3, 6, 12}:
         raise ValueError("Periode scanner harus 2, 3, 6, atau 12 bulan.")
 
@@ -205,7 +207,7 @@ def scan_shareholder_documents(
         )
         for change in _build_changes(issuer_rows):
             delta = _safe_int(change.get("CHANGE_SHARES"))
-            if delta in (None, 0):
+            if delta is None or (delta == 0 and not include_neutral):
                 continue
             changes.append(
                 {
@@ -226,7 +228,11 @@ def scan_shareholder_documents(
 
     notes = [
         "Scanner membaca seluruh kode emiten tanpa meminta kode saham.",
-        "Hanya perubahan kepemilikan yang ditampilkan; posisi yang tidak berubah disembunyikan.",
+        (
+            "Perubahan kepemilikan dan posisi netral (jumlah saham tetap) ditampilkan."
+            if include_neutral
+            else "Hanya perubahan kepemilikan yang ditampilkan; posisi yang tidak berubah disembunyikan."
+        ),
     ]
     if 1 < len(selected_dates) < period_months:
         notes.append(
@@ -257,7 +263,7 @@ def scan_shareholder_by_investor(
     investor_name: str,
     period_months: int,
 ) -> dict[str, Any]:
-    """Find one investor's ownership movements across every 1% issuer."""
+    """Find one investor's movements and neutral positions across every 1% issuer."""
     query = re.sub(r"\s+", " ", investor_name).strip()
     if not query:
         raise ValueError("Nama Pemegang Saham wajib diisi.")
@@ -266,7 +272,9 @@ def scan_shareholder_by_investor(
     if query_key == UNKNOWN:
         raise ValueError("Nama Pemegang Saham tidak valid.")
 
-    analysis = scan_shareholder_documents(documents_dir, period_months)
+    analysis = scan_shareholder_documents(
+        documents_dir, period_months, include_neutral=True,
+    )
     matches = []
     for change in analysis.get("changes", []):
         investor_key = _investor_match_key(change.get("INVESTOR_NAME"))
@@ -291,7 +299,7 @@ def scan_shareholder_by_investor(
     )
     if not matches:
         notes.append(
-            f"Tidak ada perubahan kepemilikan untuk '{query}' pada periode terpilih."
+            f"Tidak ada hasil kepemilikan yang dapat dibandingkan untuk '{query}' pada periode terpilih."
         )
 
     return {
