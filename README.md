@@ -118,23 +118,12 @@ Referensi utama: [Profil Anggota Bursa — IDX](https://www.idx.co.id/id/anggota
 Pada analisa perubahan dan scanner 5%, kolom **Rekening Efek** menampilkan kode hasil pemetaan dari **Nama Pemegang Rekening Efek**. Pencocokan menoleransi variasi `PT`, `PT.`, akhiran `Tbk`, huruf besar/kecil, dan spasi. Nama yang belum dipetakan tetap ditampilkan sesuai sumber.
 
 
-## Screenshot terminal — menu utama
+## Screenshot terminal
 
 <div align="center">
+<img src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEj_W8tEN9o5OPgMI2E10t6fOKCZmFhgK6eiZd0W0MmSNglHRW0SmgFFauaIj-T1I58gpROWubcekUvW_gP71cgk7ey-IcnTgQHLBZmZYL2u6MGOeit511yjFZCm2iweZ5kba1_IFf0g0R1HSBbUOIhotQ_t5T56BMVuz4OTgEs_G69cOmQ5PayZ44-mWosM/s1919/Screenshot%202026-09-20%20113622.png" alt="Menu utama Trace Terminal" width="100%">
 
-<table> <tr> <td align="center" width="50%">
 
-Menu Utama
-
-<img src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEiL1OGZ_JaxnQ5nxO7oXTRunCRLJJfgBuzfowDsVAeew_a3ZDFVWkbRLqUnYA66oDcEi6ZO-bIIHmr88l2drrIS6i3MnKluBLhTG3NZleBTX2gXE3jkkFqiyDmNzAbnAZHpGQd74tUY17u7CmjJmIoSzdXdECNEGIFPLbasXHWtrEtWlK8Rj8VQCGPP_Qk-/s6250/ss1.png" alt="Menu utama Trace Terminal" width="100%">
-
-</td> <td align="center" width="50%">
-
-Hasil Analisis
-
-<img src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEiUljkoAyvwAZNSwTh6VdlTQ6LeZg0lB04MelXr2h_slsfSC3U9x0mpzB6IlFCBPBjr9Mikwy1N6TNenSoRfM_I-7SGxUO7BuuWkwozjnd8jsV7mKPULoGayI_SnMM-h5vNxPIl2RHLHjnpKWOcDpWpBRzWCkyAD42ASzjdrLBZQ21kvTe7jLFK9mHxPuCg/s4000/ss2.png" alt="Hasil analisis Trace Terminal" width="100%">
-
-</td> </tr> </table>
 
 </div>
 
