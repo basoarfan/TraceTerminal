@@ -129,9 +129,9 @@ class TerminalUI:
         self.console.clear()
         now = datetime.now().strftime("%d %b %Y  %H:%M:%S")
         header = (
-            "[accent]Trace Terminal[/accent]\n"
-            "[muted]Analisis dokumen kepemilikan saham Indonesia[/muted]\n"
-            "[muted][link=https://github.com/basoarfan]https://github.com/basoarfan[/link][/muted]"
+            "[accent]Analisis Data Kepemilikan Saham Indonesia di Atas 1% & 5%[/accent]\n"
+            "[muted]▸ Github : [link=https://github.com/basoarfan]https://github.com/basoarfan[/link][/muted]\n"
+            "[muted]▸ Sociabuzz : [link=https://sociabuzz.com/basoarfan/tribe]https://sociabuzz.com/basoarfan/tribe[/link][/muted]"
         )
         self.console.print(
             Panel(
