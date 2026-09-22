@@ -1,3 +1,8 @@
+unduh terlebih dahulu datanya dari sini 
+https://www.idx.co.id/id/perusahaan-tercatat/data-kepemilikan-saham/
+
+berikut strukturnya
+
 TraceTerminal/
 ├── README.md
 ├── requirements.txt

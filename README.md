@@ -18,7 +18,7 @@ Aplikasi mengolah file `.xlsx` di komputer dan belum mengunduh data IDX secara o
 | 3 — Cari Klasifikasi Pemegang Saham | Mencari klasifikasi investor berdasarkan kode emiten, seperti pemerintah, perusahaan, dan individu. |
 | 4 — Scanner Pemegang Saham 1% | Memindai perubahan kepemilikan seluruh emiten dalam dokumen 1%. |
 | 5 — Scanner Pemegang Saham 5% | Memindai perubahan kepemilikan seluruh emiten dalam dokumen 5%. |
-| 6 — Scanner Nama Pemegang Saham | Mencari perubahan kepemilikan berdasarkan nama pada seluruh dokumen 1%. Mendukung sebagian nama dan tidak membedakan huruf besar/kecil. |
+| 6 — Scanner Nama Pemegang Saham | Mencari kepemilikan berdasarkan nama pada dokumen 1%, lalu otomatis memindai dokumen 5% dengan nama dan periode yang sama. Hasil ditampilkan terpisah per sumber. Mendukung sebagian nama dan tidak membedakan huruf besar/kecil. |
 | 0 — Keluar | Menutup aplikasi. |
 
 Menu analisa kepemilikan dan scanner menyediakan periode **2, 3, 6, atau 12 bulan**, mengikuti data yang tersedia. Pada menu 3, pilihan periode membatasi jumlah tanggal laporan klasifikasi terbaru yang ditampilkan.

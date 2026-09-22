@@ -304,8 +304,9 @@ def scan_five_percent_documents(
     documents_dir: Path,
     period_months: int,
     broker_code_map: dict[str, str] | None = None,
+    include_neutral: bool = False,
 ) -> dict[str, Any]:
-    """Scan every >=5% issuer and return only ownership movements."""
+    """Scan every >=5% issuer, optionally including neutral positions."""
     if period_months not in {1, 2, 3, 6, 12}:
         raise ValueError("Periode scanner harus 1, 2, 3, 6, atau 12.")
     if not documents_dir.exists():
@@ -369,7 +370,7 @@ def scan_five_percent_documents(
         code_changes = _build_latest_changes(rows_by_code[code], code, issuer_map)
         for change in code_changes:
             delta = change.get("CHANGE_SHARES")
-            if not isinstance(delta, (int, float)) or delta == 0:
+            if not isinstance(delta, (int, float)) or (delta == 0 and not include_neutral):
                 continue
             changes.append(
                 {
@@ -405,7 +406,11 @@ def scan_five_percent_documents(
     )
     notes = [
         "Scanner membaca seluruh kode emiten tanpa meminta Kode Efek.",
-        "Hanya perubahan kepemilikan yang ditampilkan; posisi netral disembunyikan.",
+        (
+            "Perubahan kepemilikan dan posisi netral ditampilkan."
+            if include_neutral else
+            "Hanya perubahan kepemilikan yang ditampilkan; posisi netral disembunyikan."
+        ),
     ]
     if period_months == 1:
         notes.append(

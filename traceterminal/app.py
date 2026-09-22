@@ -203,29 +203,40 @@ class TraceTerminalApp:
     def _investor_name_scanner(self) -> None:
         investor_name = self.ui.ask_investor_name()
         period_months = self.ui.ask_shareholder_period()
-        documents_dir = Path.cwd() / "documents" / "pemegang_saham_1%"
-
-        self.ui.show_progress(
-            f"Mencari pemegang saham '{investor_name}' pada seluruh emiten untuk "
-            f"{period_months} bulan terakhir dari {documents_dir}..."
-        )
-        try:
-            analysis = scan_shareholder_by_investor(
-                documents_dir,
-                investor_name,
-                period_months=period_months,
+        analyses = {}
+        errors = {}
+        for source in ("1%", "5%"):
+            documents_dir = Path.cwd() / "documents" / f"pemegang_saham_{source}"
+            self.ui.show_progress(
+                f"Mencari pemegang saham '{investor_name}' pada dokumen {source} "
+                f"untuk {period_months} bulan terakhir dari {documents_dir}..."
             )
-        except (FileNotFoundError, ValueError, ImportError) as exc:
-            self._show_analysis_error(exc)
+            try:
+                analysis = scan_shareholder_by_investor(
+                    documents_dir,
+                    investor_name,
+                    period_months=period_months,
+                    source=source,
+                )
+            except (FileNotFoundError, ValueError, ImportError) as exc:
+                errors[source] = str(exc)
+                self.ui.show_error(f"Dokumen {source}: {exc}")
+                continue
+
+            analyses[source] = analysis
+            self.ui.show_investor_name_scanner(analysis)
+
+        if not analyses:
+            self.ui.press_enter()
             return
 
-        self.ui.show_investor_name_scanner(analysis)
         self._record(
             {
                 "source": "shareholder_name_scanner",
                 "investor_name": investor_name,
                 "period_months": period_months,
-                "analysis": analysis,
+                "analysis": analyses,
+                "errors": errors,
             },
             "ALL",
         )

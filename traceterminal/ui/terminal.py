@@ -380,12 +380,13 @@ class TerminalUI:
 
     def show_investor_name_scanner(self, analysis: dict[str, Any]) -> None:
         investor_query = analysis.get("investor_query", "UNKNOWN")
+        source = analysis.get("source", "1%")
         period = analysis.get("period_months", "ALL")
         changes = analysis.get("changes", [])
         total_issuers = analysis.get("total_issuers_matched", 0)
 
         table = self._table(
-            f"SCANNER NAMA PEMEGANG SAHAM — {investor_query} — "
+            f"SCANNER NAMA PEMEGANG SAHAM {source} — {investor_query} — "
             f"{period} BULAN ({total_issuers} EMITEN)",
             HEADER,
         )

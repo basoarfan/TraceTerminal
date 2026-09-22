@@ -262,8 +262,9 @@ def scan_shareholder_by_investor(
     documents_dir: Path,
     investor_name: str,
     period_months: int,
+    source: str = "1%",
 ) -> dict[str, Any]:
-    """Find one investor's movements and neutral positions across every 1% issuer."""
+    """Find one investor's movements and neutral positions in the selected source."""
     query = re.sub(r"\s+", " ", investor_name).strip()
     if not query:
         raise ValueError("Nama Pemegang Saham wajib diisi.")
@@ -272,9 +273,28 @@ def scan_shareholder_by_investor(
     if query_key == UNKNOWN:
         raise ValueError("Nama Pemegang Saham tidak valid.")
 
-    analysis = scan_shareholder_documents(
-        documents_dir, period_months, include_neutral=True,
-    )
+    if source == "1%":
+        analysis = scan_shareholder_documents(
+            documents_dir, period_months, include_neutral=True,
+        )
+    elif source == "5%":
+        from traceterminal.analysis.shareholder5 import scan_five_percent_documents
+
+        analysis = scan_five_percent_documents(
+            documents_dir, period_months, include_neutral=True,
+        )
+        analysis["changes"] = [
+            {
+                **change,
+                "SHARE_CODE": change["KODE_EFEK"],
+                "INVESTOR_NAME": change["NAMA_PEMEGANG_SAHAM"],
+                "PREVIOUS_TOTAL": change["PREVIOUS_HOLDING"],
+                "CURRENT_TOTAL": change["LATEST_HOLDING"],
+            }
+            for change in analysis["changes"]
+        ]
+    else:
+        raise ValueError("Sumber scanner harus 1% atau 5%.")
     matches = []
     for change in analysis.get("changes", []):
         investor_key = _investor_match_key(change.get("INVESTOR_NAME"))
@@ -304,6 +324,7 @@ def scan_shareholder_by_investor(
 
     return {
         **analysis,
+        "source": source,
         "investor_query": query,
         "matched_investor_names": matched_names,
         "changes": matches,
