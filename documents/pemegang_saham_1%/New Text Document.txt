@@ -1,0 +1,15 @@
+TraceTerminal/
+├── README.md
+├── requirements.txt
+├── traceterminal/
+├── documents/
+│   ├── pemegang_saham_1%/
+│   │   ├── 2026-08-31.xlsx
+│   │   └── 2026-09-15.xlsx
+│   ├── pemegang_saham_5%/
+│   │   ├── 2026-09-14.xlsx
+│   │   └── 2026-09-15.xlsx
+│   └── klasifikasi_pemegang_saham/
+│       └── 2026-08-31.xlsx
+└── output/
+    └── logs/
