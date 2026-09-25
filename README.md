@@ -127,3 +127,13 @@ Pada analisa perubahan dan scanner 5%, kolom **Rekening Efek** menampilkan kode 
 
 </div>
 
+## Catatan
+
+Trace Terminal hanya digunakan untuk membaca, memproses, dan memfilter file `.xlsx` yang diperoleh dari situs IDX.
+
+Seluruh pemrosesan file dilakukan secara lokal di komputer pengguna. Aplikasi ini tidak mengirimkan isi file ke pihak ketiga.
+
+Jika terdapat kesalahan dalam pembacaan atau hasil analisis, harap periksa kembali file sumber dan hasil yang ditampilkan. Pengguna juga dapat meninjau kode sumber repository ini menggunakan ChatGPT, Claude, atau alat analisis kode lainnya sebelum menggunakan aplikasi.
+
+
+
